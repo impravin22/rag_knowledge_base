@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Envs
+.venv/
+venv/
+.env
+.env.*
+
+# OS/IDE
+.DS_Store
+.idea/
+.vscode/
+
+# uv
+.uv/
+uv.lock
