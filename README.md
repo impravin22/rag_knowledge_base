@@ -1,9 +1,16 @@
-# rag knowledge base 
+# rag knowledge base  
 
-This project follows strict coding standards:
-- Black (88), Pyright (strict), isort
-- Typed code with docstrings and clear structure
+RAG knowledge base service — Production-ready FastAPI skeleton with strict typing and CI.
 
-## Development
+## Structure
 
+
+## Features
+- FastAPI app with  and 
+- Typed services and Pydantic models
+- Config via Pydantic Settings (.env supported)
+- Tests with pytest + httpx
+- Tooling: Black, isort, Pyright (strict), pytest
+
+## Quickstart
 

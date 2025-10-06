@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: 3.11
+      - name: Install uv
+        run: |
+          curl -LsSf https://astral.sh/uv/install.sh | sh
+          echo "UV_CACHE_DIR=/Users/kumarpr/.cache/uv" >> 
+          echo "/Users/kumarpr/.local/bin" >> 
+      - name: Sync deps
+        run: |
+          uv pip install --system -e .[dev]
+      - name: Lint (Black)
+        run: |
+          python -m black --check .
+      - name: Imports (isort)
+        run: |
+          python -m isort --check-only .
+      - name: Type check (Pyright)
+        run: |
+          npx pyright
+      - name: Tests (pytest)
+        run: |
+          pytest -q
